@@ -1,55 +1,65 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Todo App Constitution
+
+## Project Identity
+**Name:** Todo Console Application - Phase I  
+**Purpose:** In-memory command-line task management system  
+**Tech Stack:** Python 3.13+, UV package manager
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### 1. Development Philosophy
+- Spec-driven development: Write spec → Generate plan → Implement
+- No manual coding without specification
+- AI-assisted implementation (using Gemini)
+- Iterative refinement based on testing
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### 2. Technical Constraints
+- **Python Version:** 3.13+ only
+- **Package Manager:** UV (no pip, no poetry)
+- **Storage:** In-memory only (no files, no databases)
+- **Interface:** Command-line only (no GUI, no web)
+- **Dependencies:** Minimal (prefer standard library)
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### 3. Code Quality Standards
+- **Style Guide:** PEP 8 compliance mandatory
+- **Type Safety:** Type hints required for all functions
+- **Documentation:** Docstrings required (Google style)
+- **Function Size:** Maximum 50 lines per function
+- **Module Size:** Maximum 300 lines per file
+- **Error Handling:** Explicit exception handling, no silent failures
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### 4. Project Structure
+```
+src/
+├── models/      # Data models (Task class)
+├── storage/     # In-memory storage manager
+├── cli/         # CLI interface and commands
+└── main.py      # Entry point
+```
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### 5. User Experience
+- Clear, friendly error messages
+- Confirmation prompts for destructive actions (delete)
+- Colored output for better readability (optional)
+- Input validation on all user inputs
 
-### [PRINCIPLE_6_NAME]
+### 6. Testing Requirements
+- Manual testing checklist for all features
+- Edge case testing (empty lists, invalid IDs, etc.)
+- User acceptance testing before completion
+
+## Non-Negotiables
+❌ No external databases  
+❌ No file persistence in Phase I  
+❌ No third-party CLI frameworks (use argparse/click only)  
+❌ No skipping type hints  
+❌ No commits without testing
+
+## Success Criteria
+✅ All 5 CRUD operations work flawlessly  
+✅ Clean, readable code structure  
+✅ Comprehensive README and documentation  
+✅ Spec history properly maintained  
+✅ Zero runtime errors on valid inputs
 
 
-[PRINCIPLE__DESCRIPTION]
-
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
-
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
-
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
